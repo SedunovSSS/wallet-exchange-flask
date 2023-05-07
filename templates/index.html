@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="shortcut icon" href="/static/images/icon.png" type="image/x-icon">
+    <title>CONVERTER</title>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner"><br>
+            <div class="title">
+            <h1 >WALLET CONVERTER</h1>
+                </div><br>
+            <form method="post">
+            <input type="number" min="0" step="0.001" placeholder="AMOUNT" name="amount" value="{{ amount }}">
+            <select name="first">
+                {% for i in data %}
+                <option value="{{ data[i] }}" {% if data[i] == first_wallet %} selected {% endif %}>{{i}}</option>
+                {% endfor %}
+            </select>
+            <select name="second">
+                {% for i in data %}
+                <option value="{{ data[i] }}" {% if data[i] == second_wallet %} selected {% endif %}>{{i}}</option>
+                {% endfor %}
+            </select>  <br>
+            <button class="amount-button" type="submit">CONVERTE</button>
+                </form>
+            {% if total_amount %}
+            <div class="converted">
+                <h1 style="margin: 0;">TOTAL: {{ total_amount }}</h1>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

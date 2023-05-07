@@ -1,0 +1,82 @@
+@media screen{
+    #outer { 
+        width: screen width - 40; 
+    }
+    #inner {
+        text-align: center;
+        width: 600px; margin: 15% auto;
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+        height: 400px;
+        background-color: rgba(128, 255, 128, 0.25);
+        color: white;
+    }
+}
+body{
+    background: url(/static/images/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+select, input[type='number']{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid #222;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 1s;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    width: 20%;
+    height: 42px;
+    margin-right: 5px;
+}
+select:hover{
+    background-color: white;
+    color: black;
+}
+input[type='number']{
+height: 38px;
+}
+::placeholder{
+    color: white;
+}
+.amount-button{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid #222;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 1s;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    width: 66%;
+    height: 42px;
+    margin-right: 5px;
+    margin-top: 5%;
+}
+.amount-button:hover{
+    background-color: white;
+    color: black;
+}
+.converted, .title{
+    width: 66%;
+    height: 42px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
+    background-color: black;
+    color: white;
+}
+.title{
+margin-top: 10%;
+}
