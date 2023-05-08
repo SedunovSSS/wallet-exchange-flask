@@ -18,19 +18,19 @@
             <input type="number" min="0" step="0.001" placeholder="AMOUNT" name="amount" value="{{ amount }}">
             <select name="first">
                 {% for i in data %}
-                <option value="{{ data[i] }}" {% if data[i] == first_wallet %} selected {% endif %}>{{i}}</option>
+                <option value="{{ i }}" {% if i == first_wallet %} selected {% endif %}>{{i}}</option>
                 {% endfor %}
             </select>
             <select name="second">
                 {% for i in data %}
-                <option value="{{ data[i] }}" {% if data[i] == second_wallet %} selected {% endif %}>{{i}}</option>
+                <option value="{{ i }}" {% if i == second_wallet %} selected {% endif %}>{{i}}</option>
                 {% endfor %}
             </select>  <br>
             <button class="amount-button" type="submit">CONVERTE</button>
                 </form>
             {% if total_amount %}
             <div class="converted">
-                <h1 style="margin: 0;">TOTAL: {{ total_amount }}</h1>
+                <h1 style="margin: 0;">{{ amount }} {{ first_wallet }} = {{ total_amount }} {{ second_wallet }}</h1>
             </div>
             {% endif %}
         </div>

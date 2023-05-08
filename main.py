@@ -4,7 +4,7 @@ url = 'https://api.exchangerate.host/latest'
 
 app = Flask(__name__)
 HOST = '0.0.0.0'
-PORT = 1234
+PORT = 4321
 DEBUG = True
 
 
@@ -13,13 +13,19 @@ def index():
     response = requests.get(url)
     data = response.json()['rates']
     if request.method == 'POST':
-        amount = float(request.form['amount'])
-        if amount == int(amount):
-            amount = int(amount)
-        first_wallet = float(request.form['first'])
-        second_wallet = float(request.form['second'])
-        total_amount = round(float(second_wallet) / float(first_wallet) * amount, 2)
-        return render_template('index.html', data=data, total_amount=total_amount, first_wallet=first_wallet, second_wallet=second_wallet, amount=amount)
+        first_wallet = request.form['first']
+        second_wallet = request.form['second']
+        try:
+            amount = float(request.form['amount'])
+            if amount == int(amount):
+                amount = int(amount)
+            total_amount = round(float(data[second_wallet]) / float(data[first_wallet]) * amount, 2)
+            return render_template('index.html', data=data, total_amount=total_amount,
+                                   first_wallet=first_wallet, second_wallet=second_wallet, amount=amount)
+        except Exception as ex:
+            print(ex)
+            return render_template('index.html', data=data, first_wallet=first_wallet,
+                                   second_wallet=second_wallet)
     else:
         return render_template('index.html', data=data)
 
