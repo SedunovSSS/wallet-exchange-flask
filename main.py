@@ -20,6 +20,8 @@ def index():
             if amount == int(amount):
                 amount = int(amount)
             total_amount = round(float(data[second_wallet]) / float(data[first_wallet]) * amount, 2)
+            if total_amount == int(total_amount):
+                total_amount = int(total_amount)
             return render_template('index.html', data=data, total_amount=total_amount,
                                    first_wallet=first_wallet, second_wallet=second_wallet, amount=amount)
         except Exception as ex:
